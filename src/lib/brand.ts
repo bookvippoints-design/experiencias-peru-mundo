@@ -2,7 +2,7 @@ export const APP_NAME = "Experiencias Perú y el Mundo";
 export const APP_SLOGAN = "Para disfrutar y regalar";
 
 /** PDF de hoteles nacionales de Perú. Vacío = todavía no se publica y se ocultan los botones. */
-export const NATIONAL_HOTELS_PDF = "";
+export const NATIONAL_HOTELS_PDF = "/catalogo-hoteles-peru.pdf";
 
 export const BRAND = {
   blue: "#4aa8e0",
