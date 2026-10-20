@@ -4,7 +4,7 @@ import { TopBar } from "@/components/TopBar";
 import { Crumbs } from "@/components/Crumbs";
 import { NationalGallery } from "@/components/DestinationGallery";
 import { ExtraTravelersNote } from "@/components/ExtraTravelersNote";
-import { NATIONAL_HOTELS_PDF, NATIONAL_MIN_DAYS, NATIONAL_NO_CANCEL, NATIONAL_RESPONSE, NATIONAL_RULE } from "@/lib/brand";
+import { NATIONAL_HOTELS_PDF, NATIONAL_MIN_DAYS, NATIONAL_NO_CANCEL, NATIONAL_RESPONSE, NATIONAL_RULE, whatsappUrl } from "@/lib/brand";
 
 /** Beneficios en Perú: destinos y hoteles, sin precios. */
 export default async function BeneficiosPeru() {
@@ -24,14 +24,28 @@ export default async function BeneficiosPeru() {
           </div>
         </section>
 
-        <p className="lead-justify">Elige tu destino y vive una escapada en hoteles seleccionados, para disfrutarla o para regalarla a alguien especial.</p>
+        <section className="hotels-card" aria-labelledby="hotels-title">
+          <div className="hotels-card__icon" aria-hidden="true">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 21h18" /><path d="M5 21V7l7-4 7 4v14" /><path d="M9 21v-4h6v4" /><path d="M9 10h.01M15 10h.01M9 13.5h.01M15 13.5h.01" /></svg>
+          </div>
+          <div className="hotels-card__body">
+            <span className="hotels-card__eyebrow">HOTELES PARTICIPANTES</span>
+            <h2 id="hotels-title">¿Dónde te vas a hospedar?</h2>
+            <p>Revisa la lista de hoteles por ciudad: Paracas, Cusco, Máncora, Arequipa, Ica, Tarapoto, Cajamarca, Huaraz, Puno e Iquitos.</p>
+          </div>
+          {NATIONAL_HOTELS_PDF ? (
+            <a href={NATIONAL_HOTELS_PDF} target="_blank" rel="noreferrer" className="hotels-card__btn">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6" /><path d="M12 12v6M9 15l3 3 3-3" /></svg>
+              Ver la lista de hoteles (PDF)
+            </a>
+          ) : (
+            <a href={whatsappUrl("Hola, quiero ver la lista de hoteles participantes en Perú")} target="_blank" rel="noreferrer" className="hotels-card__btn">
+              Pide la lista de hoteles por WhatsApp
+            </a>
+          )}
+        </section>
 
-        {NATIONAL_HOTELS_PDF && (
-        <a href={NATIONAL_HOTELS_PDF} target="_blank" rel="noreferrer" className="big-action">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6" /></svg>
-          Ver los hoteles participantes (PDF)
-        </a>
-        )}
+        <p className="lead-justify">Elige tu destino y vive una escapada en hoteles seleccionados, para disfrutarla o para regalarla a alguien especial.</p>
 
         <h3 className="sub-title">Destinos</h3>
         <NationalGallery />
